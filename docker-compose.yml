@@ -10,3 +10,4 @@ services:
      - 80:80
     volumes:
       - $PWD/html:/var/www/html
+      - $PWD/log/nginx:/var/log/nginx

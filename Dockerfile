@@ -52,6 +52,12 @@ RUN apt-get autoremove -y
 RUN rm -rf  /etc/apache2
 RUN rm -rf /var/www/html/index.html
 
+#EXPOSE 80
 
-CMD service nginx start
-CMD ["nginx", "-g", "daemon off;"]
+CMD nginx -g 'daemon off;'
+#CMD service nginx start
+#CMD ["nginx", "-g", "daemon off;"]
+#CMD ["nginx", "-g", "daemon off;"]
+#CMD apachectl -DFOREGROUND
+#CMD nginx -g "daemon off;"
+#CMD service nginx start
