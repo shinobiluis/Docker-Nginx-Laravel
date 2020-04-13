@@ -1,0 +1,12 @@
+version: '3.1'
+
+services:
+  web:
+    container_name: ng
+    build: .
+    expose:
+     - 80
+    ports:
+     - 80:80
+    volumes:
+      - $PWD/html:/var/www/html
