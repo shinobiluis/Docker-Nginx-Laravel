@@ -11,3 +11,4 @@ services:
     volumes:
       - $PWD/html:/var/www/html
       - $PWD/log/nginx:/var/log/nginx
+      - $PWD/conf:/etc/nginx/sites-avaible
