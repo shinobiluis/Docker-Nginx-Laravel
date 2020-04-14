@@ -1,5 +1,6 @@
 FROM ubuntu:18.04
-MAINTAINER al3jandro
+LABEL vendor=al3jandro
+LABEL version=1.0.0
 
 #actualizacion paquetes y herramientas necesarias
 RUN su
