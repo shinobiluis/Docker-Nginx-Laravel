@@ -9,6 +9,7 @@ RUN apt-get -y upgrade
 RUN apt-get install -y sudo
 RUN sudo ln -s /usr/share/zoneinfo/America/Mexico_City /etc/localtime
 RUN sudo apt-get install -y nano
+RUN sudo apt-get install -y vim
 
 #repositorios, paquetes e instalacion de php y complementos, apache2, git, unzip, npm y ufw
 RUN sudo apt-get install -y software-properties-common 
