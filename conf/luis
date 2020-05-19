@@ -1,0 +1,35 @@
+server {
+        listen 8010;
+        listen [::]:8010 ipv6only=on;
+
+        # Log files for Debugging
+        access_log /var/log/nginx/laravel-access.log;
+        error_log /var/log/nginx/laravel-error.log;
+
+        root /var/www/html/luis/public;
+        index index.php;
+
+       # server_name _;
+        server_name 192.168.6.220:8010;
+
+        location / {
+                try_files $uri $uri/ /index.php?$query_string;
+        }
+
+        error_page 404 /404.html;
+        error_page 500 502 503 504 /50x.html;
+
+        location = /50x.html {
+                root /usr/share/nginx/html;
+
+        }
+
+        location ~ \.php$ {
+                try_files $uri /index.php =404;
+                fastcgi_split_path_info ^(.+\.php)(/.+)$;
+                fastcgi_pass unix:/var/run/php/php7.2-fpm.sock;
+                fastcgi_index index.php;
+                fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+                include fastcgi_params;
+        }
+}
