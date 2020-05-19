@@ -5,11 +5,21 @@ services:
     container_name: ng
     build: .
     expose:
-     - 80
+     - 8010 #pruebaluis
+     - 8090 #frank
+     - 8020 #mike
+     - 8030 #jess
+     - 8040 #barcenas
+     - 8050 #migueluis
     # ports:
     #  - 80:80
     volumes:
-      - $PWD/html:/var/www/html
+      - /var/www/html/luis:/var/www/html/luis
+      - /var/www/html/al3jandro:/var/www/html/al3jandro
+      - /var/www/html/mike:/var/www/html/mike
+      - /var/www/html/jess:/var/www/html/jess
+      - /var/www/html/barcenas:/var/www/html/barcenas
+      - /var/www/html/migueluis:/var/www/html/migueluis
       - $PWD/log/nginx:/var/log/nginx
       - $PWD/conf:/etc/nginx/sites-available
     network_mode: "host"
