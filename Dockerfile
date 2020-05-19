@@ -55,17 +55,10 @@ RUN rm -rf  /etc/apache2
 RUN rm -rf /var/www/html/index.html
 
 #EXPOSE 80
-#enlace simbolico
-RUN ln -s /etc/nginx/sites-available/luis /etc/nginx/sites-enabled/luis
-RUN ln -s /etc/nginx/sites-available/al3jandro /etc/nginx/sites-enabled/al3jandro
-#RUN sudo service php7.2-fpm start
-##CMD php7.2-fpm -g 'daemon off;
-##CMD nginx -g 'daemon off;'
+# Enlace simbolico a los 3 proyectos
+RUN ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+RUN ln -s /etc/nginx/sites-available/newsite /etc/nginx/sites-enabled/newsite
+RUN ln -s /etc/nginx/sites-available/laravel /etc/nginx/sites-enabled/laravel
+
 CMD service php7.2-fpm start && nginx -g "daemon off;"
 
-#CMD service nginx start
-#CMD ["nginx", "-g", "daemon off;"]
-#CMD ["nginx", "-g", "daemon off;"]
-#CMD apachectl -DFOREGROUND
-#CMD nginx -g "daemon off;"
-#CMD service nginx start

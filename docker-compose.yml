@@ -5,21 +5,17 @@ services:
     container_name: ng
     build: .
     expose:
-     - 8010 #pruebaluis
-     - 8090 #frank
-     - 8020 #mike
-     - 8030 #jess
-     - 8040 #barcenas
-     - 8050 #migueluis
+     - 80 #defaul
+     - 8010 #newsite
+     - 8020 #laravel
     # ports:
     #  - 80:80
     volumes:
-      - /var/www/html/luis:/var/www/html/luis
-      - /var/www/html/al3jandro:/var/www/html/al3jandro
-      - /var/www/html/mike:/var/www/html/mike
-      - /var/www/html/jess:/var/www/html/jess
-      - /var/www/html/barcenas:/var/www/html/barcenas
-      - /var/www/html/migueluis:/var/www/html/migueluis
+      # Volumnes para el control del sitio
+      # El proyecto que trabajes debe estar en un servidor en la ruta /var/www/html/sitio
+      - /var/www/html:/var/www/html
+      - /var/www/html/newsite:/var/www/html/newsite
+      - /var/www/html/laravel:/var/www/html/laravel
       - $PWD/log/nginx:/var/log/nginx
       - $PWD/conf:/etc/nginx/sites-available
     network_mode: "host"

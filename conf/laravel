@@ -1,16 +1,16 @@
 server {
-        listen 8010;
-        listen [::]:8010 ipv6only=on;
+        listen 8020;
+        listen [::]:8020 ipv6only=on;
 
         # Log files for Debugging
         access_log /var/log/nginx/laravel-access.log;
         error_log /var/log/nginx/laravel-error.log;
 
-        root /var/www/html/luis/public;
+        root /var/www/html/laravel/public;
         index index.php;
 
        # server_name _;
-        server_name 192.168.6.220:8010;
+        #server_name ip:puerto;
 
         location / {
                 try_files $uri $uri/ /index.php?$query_string;
