@@ -56,7 +56,7 @@ RUN rm -rf /var/www/html/index.html
 
 #EXPOSE 80
 # Enlace simbolico a los 3 proyectos
-RUN ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+# RUN ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
 RUN ln -s /etc/nginx/sites-available/newsite /etc/nginx/sites-enabled/newsite
 RUN ln -s /etc/nginx/sites-available/laravel /etc/nginx/sites-enabled/laravel
 
