@@ -9,7 +9,7 @@ RUN apt-get -y upgrade
 RUN apt-get install -y sudo
 RUN sudo ln -s /usr/share/zoneinfo/America/Mexico_City /etc/localtime
 RUN sudo apt-get install -y nano
-RUN sudo apt-get install -y vim
+RUN sudo apt-get install -y vim 
 
 #repositorios, paquetes e instalacion de php y complementos, apache2, git, unzip, npm y ufw
 RUN sudo apt-get install -y software-properties-common 
@@ -31,10 +31,10 @@ RUN sudo pecl install mcrypt-1.0.1
 RUN sudo apt-get install -y nginx
 RUN apt-get -y update
 RUN sudo apt-get install -y php7.2-fpm
-RUN sudo apt-get install -y git
+RUN sudo apt-get install -y git 
 RUN sudo apt-get install -y unzip
 RUN sudo apt-get install -y npm build-essential
-RUN sudo apt-get install -y ufw
+RUN sudo apt-get install -y ufw 
 RUN sudo apt-get install -y net-tools
 
 #permisos de escritura y ejecucion
@@ -43,7 +43,7 @@ RUN sudo chgrp -R www-data /var/www
 
 #instalando laravel
 RUN cd /tmp
-RUN curl -sS https://getcomposer.org/installer | php
+RUN curl -sS https://getcomposer.org/installer | php 
 RUN sudo mv composer.phar /usr/local/bin/composer
 RUN composer --version
 
@@ -55,8 +55,14 @@ RUN rm -rf  /etc/apache2
 RUN rm -rf /var/www/html/index.html
 
 #EXPOSE 80
+#enlace simbolico
+RUN ln -s /etc/nginx/sites-available/luis /etc/nginx/sites-enabled/luis
+RUN ln -s /etc/nginx/sites-available/al3jandro /etc/nginx/sites-enabled/al3jandro
+#RUN sudo service php7.2-fpm start
+##CMD php7.2-fpm -g 'daemon off;
+##CMD nginx -g 'daemon off;'
+CMD service php7.2-fpm start && nginx -g "daemon off;"
 
-CMD nginx -g 'daemon off;'
 #CMD service nginx start
 #CMD ["nginx", "-g", "daemon off;"]
 #CMD ["nginx", "-g", "daemon off;"]
